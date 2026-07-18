@@ -11,5 +11,6 @@ Route::get('/', function () {
 });
 
 Route::get('/articles',[ArticleController::class,'index']);
+Route::get('/comments',[ArticleController::class,'comments']);
 
 Route::get('/contact','App\Http\Controllers\MigrationController@index');

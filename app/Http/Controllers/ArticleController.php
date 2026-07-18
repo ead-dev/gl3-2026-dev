@@ -34,4 +34,25 @@ class ArticleController extends Controller{
         return view('Articles.index',compact('items'));
     }
 
+    public function comments(){
+        $comments = [
+            [
+                'id'=>1,
+                'nom'=>'ABC',
+                'commentaire'=>'Ceci est un commentaire'
+            ],
+            [
+                'id'=>2,
+                'nom'=>'Short',
+                'commentaire'=>'Ceci est un commentaire'
+            ],
+            [
+                'id'=>3,
+                'nom'=>'T-shirt',
+                'commentaire'=>'Ceci est un commentaire'
+            ],
+        ];
+        return view('Comments.index',compact('comments'));
+    }
+
 }
