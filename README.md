@@ -8,7 +8,7 @@ composer install
 
 Faire une copie du fichier .env.example et le renommer .env
 
-Sur le clef connection mettre mysql
+Sur la clef connection mettre mysql
 puis les autres parametres de connexions y compris le nom de votre base de donnees
 
 Importer le fichier db.sql dans votre bd.
