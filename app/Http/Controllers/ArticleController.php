@@ -8,30 +8,33 @@ class ArticleController extends Controller{
 
     function index(){
         //$request = request();
-        $items = Article::where('id','<',10)->get();
-        //dd($items);
-       /* $items = [
-            [
-                'id'=>1,
-                'nom'=>'ABC',
-                'quantite'=>15,
-                'prix'=>25000
-            ],
-            [
-                'id'=>2,
-                'nom'=>'Short',
-                'quantite'=>7,
-                'prix'=>75000
-            ],
-            [
-                'id'=>3,
-                'nom'=>'T-shirt',
-                'quantite'=>23,
-                'prix'=>16500
-            ],
-        ];
-        */
+        $items = Article::paginate(10);
         return view('Articles.index',compact('items'));
+    }
+
+    function create(){
+        return view('Articles.create');
+    }
+
+
+    function show($article_id){
+        $item = Article::find($article_id);
+        //dd($item);
+        return view('Articles.show',compact('item'));
+    }
+
+
+    public function store(){
+
+        $rq = request();
+        //dd($rq->all());
+        /* $data = request()->validate([
+            'title'=>'required',
+            'content'=>'required',
+        ]); */
+        $data = $rq->all();
+        Article::create($data);
+        return redirect('/articles');
     }
 
     public function comments(){
